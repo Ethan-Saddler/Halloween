@@ -8,8 +8,8 @@ public class Suspect extends PersonOfInterest {
             this.height = height;
         }
     }
-    public Suspect(Color hairColor, int proximity) {
-        super(hairColor, proximity);
+    public Suspect(int proximity, RubberDuck rubberDuck) {
+        super(proximity, rubberDuck);
         this.height = 160;
     }
     public String toString() {
@@ -21,5 +21,6 @@ public class Suspect extends PersonOfInterest {
             Suspect suspect = (Suspect) obj;
             return this.height == suspect.height;
         }
+        return false;
     }
 }

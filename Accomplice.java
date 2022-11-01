@@ -14,5 +14,6 @@ public class Accomplice extends PersonOfInterest {
             Accomplice accomplice = (Accomplice) obj;
             return this.canCode == accomplice.canCode;
         }
+        return false;
     }
 }
