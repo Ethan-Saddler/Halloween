@@ -1,3 +1,5 @@
+
+
 public class RubberDuck {
     final private Color color;
     final private boolean hasHat;
