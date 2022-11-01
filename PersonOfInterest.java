@@ -1,5 +1,3 @@
-import java.lang.Math;
-
 public class PersonOfInterest implements Comparable<PersonOfInterest> {
     private Color hairColor;
     private int proximity;
@@ -7,7 +5,7 @@ public class PersonOfInterest implements Comparable<PersonOfInterest> {
 
     public PersonOfInterest(int proximity, RubberDuck rubberDuck) {
         this.hairColor = Color.BLONDE;
-        this.proximity = Math.abs(proximity);
+        this.proximity = proximity < 0 ? proximity * -1 : proximity;
         if (this.rubberDuck == null) {
             this.rubberDuck = new RubberDuck(Color.YELLOW, true);
         } else {
