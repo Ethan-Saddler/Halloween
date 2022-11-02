@@ -16,4 +16,7 @@ public class Accomplice extends PersonOfInterest {
         }
         return false;
     }
+    public boolean getCode() {
+        return canCode;
+    }
 }

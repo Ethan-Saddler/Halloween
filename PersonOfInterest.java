@@ -48,7 +48,7 @@ public class PersonOfInterest implements Comparable<PersonOfInterest> {
         }
         return this.hairColor.compareTo(poi.hairColor);
     }
-
-
-
+    public RubberDuck getDuck() {
+        return rubberDuck;
+    }
 }
