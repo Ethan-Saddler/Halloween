@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class PoliceStation {
     private String name;
     private ArrayList<Suspect> suspects;
@@ -10,10 +12,10 @@ public class PoliceStation {
             this.name = name;
         }
         this.suspects = new ArrayList<Suspect>();
-        this.accomplice = new ArrayList<Accomplice>();
+        this.accomplices = new ArrayList<Accomplice>();
     }
     public void addPersonOfInterest(PersonOfInterest poi) {
-        if (poi.getName() == "Suspect") {
+        if (poi.getClass().getName() == "Suspect") {
             Suspect suspect = (Suspect) poi;
             suspects.add(suspect);
         } else {
@@ -22,6 +24,19 @@ public class PoliceStation {
         }
     }
     public void sortSuspects() {
-        
+        int length = suspects.size();
+        Suspect swap;
+        int min;
+        for(int n = 0; n < length; n++) {
+            min = n;
+            for(int m = n + 1; m < length; m++) {
+                if (suspects.get(min).compareTo(suspects.get(m)) == 1) {
+                    min = m;
+                }
+            swap = suspects.get(min);
+            suspects.set(min, suspects.get(n));
+            suspects.set(n, swap);
+            }
+        }
     }
 }
