@@ -29,16 +29,20 @@ public class PoliceStation {
         int length = suspects.size();
         Suspect swap;
         int min;
-        for (int n = 0; n < length; n++) {
+        for (int n = 0; n < length - 1; n++) {
+            System.out.println("new iteration");
             min = n;
             for (int m = n + 1; m < length; m++) {
                 if (suspects.get(min).compareTo(suspects.get(m)) == 1) {
+                    System.out.println("okokok\n");
                     min = m;
                 }
-                swap = suspects.get(min);
-                suspects.set(min, suspects.get(n));
-                suspects.set(n, swap);
             }
+            swap = suspects.get(min);
+            suspects.set(min, suspects.get(n));
+            suspects.set(n, swap);
+            System.out.print("\n---NEW LIST---\n");
+            for(Suspect suspect: suspects) {System.out.print(suspect.toString());}
         }
     }
 
@@ -58,11 +62,9 @@ public class PoliceStation {
         }
         return newSuspects;
     }
-
-    // confused
     public Suspect findSuspect(Suspect suspect) {
         sortSuspects();
-        // removeDuplicates();
+        removeDuplicates();
         int max = suspects.size() - 1;
         int min = 0;
         int index = (max + min) / 2;
@@ -96,10 +98,15 @@ public class PoliceStation {
         RubberDuck duck1 = new RubberDuck(Color.BLUE, false);
         RubberDuck duck2 = new RubberDuck();
 
-        Suspect suspect = new Suspect(Color.BLONDE, 20, duck, 180);
+        Suspect suspect = new Suspect(Color.BLONDE, 10, duck, 180);
         Suspect suspect1 = new Suspect(10, duck1);
         Suspect suspect2 = new Suspect(Color.BROWN, 30, duck2, 170);
         Suspect suspect3 = new Suspect(Color.BROWN, 30, duck2, 170);
+
+        System.out.println(suspect.proximity);
+        System.out.println(suspect1.proximity);
+        System.out.println(suspect2.proximity);
+        System.out.println(suspect3.proximity);
 
         PoliceStation station = new PoliceStation("Gaming");
 
@@ -107,16 +114,18 @@ public class PoliceStation {
         station.addPersonOfInterest(suspect);
         station.addPersonOfInterest(suspect1);
         station.addPersonOfInterest(suspect2);
+        
         station.sortSuspects();
-        for(Suspect sus: station.suspects) {
-            System.out.println(sus.toString());
-        }
 
-        station.suspects = station.removeDuplicates();
+        // for(Suspect sus: station.suspects) {
+        //     System.out.println(sus.toString());
+        // }
 
-        for(Suspect sus: station.suspects) {
-            System.out.println(sus.toString());
-        }
+        // station.suspects = station.removeDuplicates();
+
+        // for(Suspect sus: station.suspects) {
+        //     System.out.println(sus.toString());
+        // }
 
     }
 }
