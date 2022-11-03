@@ -1,7 +1,7 @@
 public class PersonOfInterest implements Comparable<PersonOfInterest> {
-    public Color hairColor;
-    public int proximity;
-    public RubberDuck rubberDuck;
+    private Color hairColor;
+    private int proximity;
+    private RubberDuck rubberDuck;
 
     public PersonOfInterest(int proximity, RubberDuck rubberDuck) {
         this.hairColor = Color.BLONDE;
@@ -40,18 +40,18 @@ public class PersonOfInterest implements Comparable<PersonOfInterest> {
     }
 
     public int compareTo(PersonOfInterest poi) {
+        if (poi == null) {
+            return -1;
+        }
         if (this.proximity == poi.proximity && this.hairColor == poi.hairColor) {
             return 0;
         }
         if (this.proximity < poi.proximity) {
-            System.out.println("less");
             return -1;
         } else if (this.proximity > poi.proximity) {
-            System.out.println(this.proximity);
-            System.out.println(poi.proximity);
             return 1;
         }
-        return this.hairColor.toString().compareTo(poi.hairColor.toString());
+        return this.hairColor.compareTo(poi.hairColor);
     }
 
     public RubberDuck getDuck() {
